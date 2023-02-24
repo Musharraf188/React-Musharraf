@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHTTPRequest</title> 
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="main">
+    <div class="img1">
+        <img id="avatar" class="avtar" alt="img_url">
+        <p id="demo"></p>
+    </div>
+
+    <div class="img2">
+        <img id="avatar1" class="avtar" alt="img_url">
+        <p id="demo1"></p>
+    </div>
+
+    <div class="img3">
+        <img id="avatar2" class="avtar" src="" alt="img_url">
+        <p id="demo2"></p>
+    </div>
+    <div class="img4">
+        <img src="" id="avatar3" class="avtar" alt="">
+        <p id="demo3"></p>
+    </div>
+</div>    
+    <script>
+        let request = new XMLHttpRequest();
+        request.open("GET","https://api.github.com/users/AbRaheman-sr");
+        request.send();
+        request.onload = ( ()=>{
+            console.log(request);
+            if(request.status === 200){
+                const jsonData = JSON.parse(request.response);
+                console.log(jsonData);
+                document.getElementById("demo").innerHTML=jsonData.name;
+                document.getElementById("avatar").src=jsonData.avatar_url;
+            }else{
+                document.getElementById("demo").innerHTML=`error occure with status ${request.status} :: ${request.statusText}`
+            }
+        }
+        )
+        let request1 = new XMLHttpRequest();
+        request1.open("GET","https://api.github.com/users/abdulazhar-cr");
+        request1.send();
+        request1.onload = ( ()=>{
+            console.log(request1);
+            if(request1.status === 200){
+                const jsonData = JSON.parse(request1.response);
+                console.log(jsonData);
+                document.getElementById("demo1").innerHTML=jsonData.name;
+                document.getElementById("avatar1").src=jsonData.avatar_url;
+            }else{
+                document.getElementById("demo1").innerHTML=`error occure with status ${request1.status} :: ${request1.statusText}`
+            }
+        }
+        )
+        let request2 = new XMLHttpRequest();
+        request2.open("GET","https://api.github.com/users/1kazi");
+        request2.send();
+        request2.onload = ( ()=>{
+            console.log(request2);
+            if(request2.status === 200){
+                const jsonData = JSON.parse(request2.response);
+                console.log(jsonData);
+                document.getElementById("demo2").innerHTML=jsonData.name;
+                document.getElementById("avatar2").src=jsonData.avatar_url;
+            }else{
+                document.getElementById("demo2").innerHTML=`error occure with status ${request2.status} :: ${request2.statusText}`
+            }
+        }
+        ) 
+        let request3 = new XMLHttpRequest();
+        request3.open("GET","https://api.github.com/users/abdulmukhid");
+        request3.send();
+        request3.onload = ( ()=>{
+            console.log(request3);
+            if(request3.status === 200){
+                const jsonData = JSON.parse(request3.response);
+                console.log(jsonData);
+                document.getElementById("demo3").innerHTML=jsonData.name;
+                document.getElementById("avatar3").src=jsonData.avatar_url;
+            }else{
+                document.getElementById("demo3").innerHTML=`error occure with status ${request3.status} :: ${request3.statusText}`
+            }
+        }
+        )  
+    </script>  
+</body>
+</html>
