@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="img1">
+        <img id="avatar" class="avtar" alt="img_url">
+        <p id="demo"></p>
+    </div>
+
+    <div class="img2">
+        <img id="avatar1" class="avtar" alt="img_url">
+        <p id="demo1"></p>
+    </div>
+    <script>
+        axios.get("https://api.github.com/users/AbRaheman-sr").then((response)=>{
+            console.log(response);
+            if(response.status===200){
+
+           
+            document.getElementById("demo").innerHTML=response.data.name
+            document.getElementById("avatar").innerHTML=response.data.name
+        }else{
+            console.log(error);
+        }
+        })
+    </script>
+</body>
+</html>
