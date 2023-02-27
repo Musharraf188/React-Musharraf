@@ -22,5 +22,6 @@ function App() {
     </div>
   );
 }
-
+// Yarn install pakages with pararll way
+// vite- 
 export default App;
